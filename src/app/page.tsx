@@ -1,5 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import {
+  BatikParang,
+  BatikKawung,
+  BatikMegaMendung,
+  BatikSekarJagad,
+  BatikTruntum,
+  BatikPekalongan,
+} from "@/components/BatikPatterns";
 
 export default function Home() {
   return (
@@ -83,10 +91,18 @@ export default function Home() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <div className="batik-placeholder aspect-square rounded-2xl card-hover"></div>
-              <div className="batik-placeholder aspect-square rounded-2xl card-hover mt-8"></div>
-              <div className="batik-placeholder aspect-square rounded-2xl card-hover -mt-8"></div>
-              <div className="batik-placeholder aspect-square rounded-2xl card-hover"></div>
+              <div className="aspect-square rounded-2xl card-hover overflow-hidden shadow-md">
+                <BatikMegaMendung className="w-full h-full" />
+              </div>
+              <div className="aspect-square rounded-2xl card-hover mt-8 overflow-hidden shadow-md">
+                <BatikKawung className="w-full h-full" />
+              </div>
+              <div className="aspect-square rounded-2xl card-hover -mt-8 overflow-hidden shadow-md">
+                <BatikTruntum className="w-full h-full" />
+              </div>
+              <div className="aspect-square rounded-2xl card-hover overflow-hidden shadow-md">
+                <BatikSekarJagad className="w-full h-full" />
+              </div>
             </div>
           </div>
         </div>
@@ -111,35 +127,43 @@ export default function Home() {
                 name: "Batik Parang",
                 origin: "Jawa Tengah & Yogyakarta",
                 description: "Motif diagonal yang melambangkan kekuatan, keberanian, dan tidak pernah menyerah.",
+                Pattern: BatikParang,
               },
               {
                 name: "Batik Kawung",
                 origin: "Jawa Tengah",
                 description: "Motif geometris melingkar yang melambangkan kesucian, keadilan, dan umur panjang.",
+                Pattern: BatikKawung,
               },
               {
                 name: "Batik Mega Mendung",
                 origin: "Cirebon, Jawa Barat",
                 description: "Motif awan yang melambangkan kesabaran dan ketabahan dalam menghadapi masalah.",
+                Pattern: BatikMegaMendung,
               },
               {
                 name: "Batik Sekar Jagad",
                 origin: "Jawa Tengah",
                 description: "Motif 'Bunga Dunia' yang melambangkan keberagaman dan keindahan dunia.",
+                Pattern: BatikSekarJagad,
               },
               {
                 name: "Batik Truntum",
                 origin: "Surakarta",
                 description: "Motif bintang kecil yang melambangkan cinta kasih yang tumbuh kembali.",
+                Pattern: BatikTruntum,
               },
               {
                 name: "Batik Pekalongan",
                 origin: "Pekalongan, Jawa Tengah",
                 description: "Motif pesisir dengan warna cerah dan pengaruh budaya China, Arab, dan Eropa.",
+                Pattern: BatikPekalongan,
               },
             ].map((pattern, index) => (
               <div key={index} className="bg-white rounded-2xl overflow-hidden card-hover shadow-sm">
-                <div className="batik-placeholder aspect-video"></div>
+                <div className="aspect-video overflow-hidden">
+                  <pattern.Pattern className="w-full h-full" />
+                </div>
                 <div className="p-6">
                   <h3 className="font-serif text-2xl font-bold text-stone-900 mb-2">
                     {pattern.name}
